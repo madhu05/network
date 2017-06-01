@@ -30,7 +30,7 @@ play_src = dict(
             become="true",
             tasks=[
                 dict(name="Gather facts about all ports", action=dict(module="os_ports_facts", auth=dict(auth_url="http://192.168.10.238:5000/v2.0", 
-                username="madhu", password="openstack", project_name="admin"))),
+                username="admin", password="cnetopenstack", project_name="admin"))),
 				
                 dict(name="Show openstack ports", action=dict(module="debug", var="openstack_ports"))]
             
