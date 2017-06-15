@@ -122,8 +122,12 @@ def test(data, data2, data4, data6):
                     a["latency"] = "low"
                 a["strokeWidth"] = "1px"
                 a["strokeDasharray"] = "solid"
-                l["source"] = link["network_id"]
-                l["target"] = link["device_id"]
+                if link['device_owner'] == "network:router_interface":
+                    l["source"] = link["device_id"]
+                    l["target"] = link["network_id"]
+                else
+                    l["source"] = link["network_id"]
+                    l["target"] = link["device_id"]
                 l["properties"] = a.copy()
                 network2.append(l.copy())
         for link in data5["openstack_ports"]:
